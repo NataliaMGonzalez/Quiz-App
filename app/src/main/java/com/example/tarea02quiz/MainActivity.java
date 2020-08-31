@@ -13,26 +13,26 @@ public class MainActivity extends AppCompatActivity {
 
 
     public static String[] questions = new String [] {
-            "Magnets have two poles.",
-            "Magnets have an East pole and a West pole.",
-            "The Earth is not magnetic.",
-            "Magnetic fields can clearly be seen with your eyes.",
-            "The above diagram represents attraction between two magnets.",
-            "An iron nail is attracted to a magnet.",
-            "An electromagnet uses alternating current from the mains.",
-            "An electromagnet is a temporary magnet.",
-            "The above magnet is a disc magnet.",
+            "Apollo and Artemis are Twins",
+            "Aphrodite is the goddess of marriage",
+            "Heracles beheaded Medusa",
+            "The Roman name for Hephaestus is Mercury",
+            "Persephone is the daughter of Demeter",
+            "One of Hera's sacred animals is the peacock",
+            "Athena gifted the romans the olive tree",
+            "Poseidon is the Lord of horses",
+            "Achilles was the son of Zeus",
     };
 
     public static boolean[] answers = new boolean[]{
-            true, false, false, false, true, true, false, true, true
+            true, false, false, false, true, true, false, true, false
     };
 
     private Button mTrueButton, mFalseButton, mNextButton;
 
     private TextView mQuestion;
-    private boolean mAnswer;
-    private int mQuestionNumber = 0;
+    private static boolean mAnswer;
+    private static int mQuestionNumber = 0;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -44,8 +44,8 @@ public class MainActivity extends AppCompatActivity {
         mFalseButton = (Button) findViewById(R.id.falseButton);
         mNextButton = (Button) findViewById(R.id.nextButton);
 
-        mQuestion.setText(questions[0]);
-        mAnswer = answers[0];
+        mQuestion.setText(questions[mQuestionNumber]);
+        mAnswer = answers[mQuestionNumber];
 
         // True Button
         mTrueButton.setOnClickListener(new View.OnClickListener() {
@@ -53,7 +53,7 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View view) {
             if(mQuestionNumber < 9){
                 Context context = getApplicationContext();
-                String result = answers[mQuestionNumber] ? "Correcto!" : "Incorrect!";
+                String result = answers[mQuestionNumber] ? "Correct!" : "Incorrect!";
                 Toast toast = Toast.makeText(context, result, Toast.LENGTH_SHORT);
                 toast.show();
             }
@@ -85,12 +85,12 @@ public class MainActivity extends AppCompatActivity {
 
                 }
                 else {
+                    mQuestionNumber = 0;
                     Context context = getApplicationContext();
                     Toast toast = Toast.makeText(context, "End of Quiz", Toast.LENGTH_SHORT);
                     toast.show();
                 }
             }
-
 
         });
 

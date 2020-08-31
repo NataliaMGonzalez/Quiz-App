@@ -3,4 +3,6 @@
     <string name="trueBtn">True</string>
     <string name="falseBtn">False</string>
     <string name="nextBtn">Next</string>
+    <string name="q0ApolloandArtemis">Apollo and Artemis are twins</string>
+
 </resources>
